@@ -1,0 +1,32 @@
+{% extends 'posts/base.html' %}{% load static %} {% block link %}<link
+  rel="stylesheet"
+  href="{% static 'posts/styles/post.css' %}"
+/>{% endblock %} 
+
+{% block content %} 
+
+<div class="content">
+    <a class="post-link" href="{% url 'posts' %}">All Posts</a>
+    {% if post_found %}
+  
+    <div class="post-title">{{postTitle}}</div>
+ 
+  <main>
+    <p class="postBody">{{postBody}}</p>
+  </main>
+  {% else %}
+  <main>
+    <p class="postBody">Post not found!</p>
+  </main>
+
+  {% endif %}
+
+  <a
+    class="btn btn-warning"
+    href="{% url 'update-post' postSlug %}"
+    style="margin-right: 10px"
+    >Update</a
+  >
+  <a class="btn btn-danger" href="{% url 'delete-post' postSlug %}">Delete</a>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'posts/base.html' %}{% load static %}
+  {% block content %}
+  <header class="header" >
+      <div class="header-div">All Blog Posts</div>
+      <p class="header-paragraph">Check our latest posts!!</p>
+    </header>
+    <main class="postsBody">
+      {% for postItem in posts %}
+      <post>
+        <ol>
+          <li class="postItem">
+            <div class="postImage">
+              {% if postItem.image %}
+              <img src="{{postItem.image.url}}" alt="this image" />
+              {% else %}
+              <img src="" alt="this image" />
+              {% endif %}
+            </div>
+
+            <div class="postContent">
+              <div>
+                <div class="postTitle">{{postItem.title}}</div>
+              </div>
+              
+              <a href="{% url 'postDetail' postItem.slug %}" class="postAnchor"
+                >View Post</a
+              >
+            </div>
+          </li>
+        </ol>
+      </post>
+      {% endfor %}
+    </main>
+{% endblock %}
