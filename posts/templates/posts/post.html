@@ -1,6 +1,6 @@
 {% extends 'posts/base.html' %}{% load static %} {% block link %}<link
   rel="stylesheet"
-  href="{% static 'posts/styles/post.css' %}"
+  href="{% static 'css/post.css' %}"
 />{% endblock %} 
 
 {% block content %} 
@@ -24,7 +24,7 @@
   <a
     class="btn btn-warning"
     href="{% url 'update-post' postSlug %}"
-    style="margin-right: 10px"
+    style="margin-bottom: 10px"
     >Update</a
   >
   <a class="btn btn-danger" href="{% url 'delete-post' postSlug %}">Delete</a>
